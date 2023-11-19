@@ -1,7 +1,7 @@
 <html>
 <head>
     <title>Drug Management System</title>
-    <link rel="stylesheet" type="text/css" href="Database.css">
+    <link rel="stylesheet" type="text/css" href="Views_Database.css">
 </head>
 <body>
 <?php
