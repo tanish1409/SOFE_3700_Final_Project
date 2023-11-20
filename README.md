@@ -11,14 +11,17 @@
 
 ### MySQL Workbench Setup
 
-1. Navigate to the GitHub Phase-II folder and start by using the create commands. Run each table individually as they have dependencies.
-2. Run the Populate Commands. Similarly, run these individually due to dependencies.
-3. Run the Create_Views commands to ensure your views exist.
+1. Open Mysql Workbench and create a new database of the name 'drug'.
+2. Navigate to the GitHub Phase-II folder and start by using the create commands. Run each table individually as they have dependencies.
+3. Run the Populate Commands. Similarly, run these individually due to dependencies.
+4. Run the Create_Views commands to ensure your views exist.
 
 ### XAMPP Server Installation
 
 1. Install XAMPP Server and ensure that Apache can run on the same.
 2. Copy all the files from the Phase-III folder to the `htdocs` folder in your XAMPP installation.
+   ![XAMPP Server Success](./xamppsuccess.png)
+   ![htdocs path](./dirxampp.png)
 
 ### Configuration
 
@@ -29,5 +32,23 @@
    - `drug.php`
    - `customer.php`
    - `update_password.php`
+     This is where the changes made should be for reference:
+     ![In config.php and views.php](./cred2.png)
+     ![In drug.php, customer.php and updte_password.php](./cred1.png)
 
-Make sure to follow these steps meticulously to set up the project successfully. If you encounter any issues during the installation or configuration process, refer to the documentation or seek assistance online.
+### Startup
+
+1. Go to your browser and start the localhost:{the port number you used in apache}/main.php
+   ![It should look like this:](./url.png)
+2. Then you are free to navigate through the webpage and see changes to the backend too.
+
+Make sure to follow these steps meticulously to set up the project successfully. If you encounter any issues during the installation or configuration process,please contact me through email (tanish.singla@ontariotechu.net).
+
+### Debug
+
+1. Possible errors:
+   a. Failure to establish a connection with Workbench. Ensure your credentials work properly.
+   b. Incorrect port number in Apache. Verify that the port number in the URL matches the one configured in Apache.
+   c. File permission issues in the `htdocs` folder. Make sure the web server has the necessary permissions to access the files.
+   d. Incorrect database name in the configuration files. Double-check the database name specified in `config.php` and ensure it matches the one created in MySQL Workbench.
+   e. PHP module not enabled in Apache. Ensure that the PHP module is enabled in the Apache configuration.
