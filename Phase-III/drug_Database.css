@@ -1,0 +1,81 @@
+
+nav {
+    background-color: #333;
+    overflow: hidden;
+}
+
+nav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+a {
+    text-align: center;
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: 120px;
+    background-color: #3498db;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-left: 10px;
+    font-family: 'Arial', Courier, monospace;
+    font-size: 16px;
+}
+
+a:hover {
+    background-color: #217dbb;
+}
+
+body, h1, h2, ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+h2 {
+    margin-top: 20px;
+    text-align: center;
+    color: #333;
+}
+
+#drugList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#drugList li {
+    background-color: #f2f2f2;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+
+@media screen and (max-width: 600px) {
+    nav a {
+        width: 100%;
+        float: none;
+    }
+}
+

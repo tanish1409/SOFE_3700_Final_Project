@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile Page</title>
+    <link rel="stylesheet" href="customer_Database.css">
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const username = urlParams.get('username');
+        console.log(username);
+        document.addEventListener('DOMContentLoaded', function() {
+            const usernameElement = document.getElementById('username');
+            if (usernameElement) {
+                usernameElement.value = username;
+            }
+        });
+    </script>
+</head>
+<body>
+    <nav>
+        <a href="welcome.php">Home</a>
+        <a href="Views.php">View</a>
+        <a href="drug.html">Inventory</a>
+        <a href="customer.html">User Profile</a>
+        <a style="float: right;" href="logout.php">Logout</a>
+    </nav>
+
+    <!-- Display user profiles -->
+    <h1>User Profile</h1>
+    <ul id="userList"></ul>
+
+    <!-- Update Password Section -->
+    <h2>Update Password:</h2>
+    <div class="input-container">
+        <label for="oldPassword">Old Password:</label>
+        <input type="password" id="oldPassword" name="oldPassword">
+    </div>
+    <br>
+    <div class="input-container">
+        <label for="newPassword">New Password:</label>
+        <input type="password" id="newPassword" name="newPassword">
+    </div>
+    <div id="updateButtonContainer">
+        <button onclick="updatePassword()">Update Password</button>
+    </div>
+    <p id="updateResult"></p>
+
+    <!-- Include jQuery for AJAX requests -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+    $.ajax({
+        url: 'customer.php',
+        type: 'GET',
+        dataType: 'json',
+        data: { username: username },
+        success: function(data) {
+            console.log(data);
+            var userList = $('#userList');
+            if (data.success !== undefined && !data.success) {
+                console.error('Error fetching user profiles:', data.message);
+            } else {
+                userList.append('<li>' +
+                    'ID: ' + data.CustomerID + '<br>' +
+                    'Name: ' + data.CustomerName + '<br>' +
+                    'Contact Number: ' + data.ContactNumber + '<br>' +
+                    'Address: ' + data.Address + '<br>' +
+                    'State: ' + data.State + '<br>' +
+                    '</li><br><br>');
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error('Error fetching user profiles:', error);
+            console.log(xhr.responseText);
+        }
+    });
+});
+
+// Function to update the user's password
+function updatePassword() {
+        const oldPassword = $('#oldPassword').val();
+        const newPassword = $('#newPassword').val();
+
+        $.ajax({
+            url: 'update_password.php',
+            type: 'POST',
+            dataType: 'json',
+            data: { username: username, oldPassword: oldPassword, newPassword: newPassword },
+            success: function(data) {
+                console.log(data);
+                const updateResult = $('#updateResult');
+                if (data.success !== undefined && data.success) {
+                    updateResult.text('Password updated successfully.');
+                } else {
+                    updateResult.text('Error updating password: ' + data.message);
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error('Error updating password:', error);
+                console.log(xhr.responseText);
+            }
+        });
+    }
+        </script>
+</body>
+</html>

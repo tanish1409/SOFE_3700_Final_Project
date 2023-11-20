@@ -21,6 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else {
             // Invalid credentials
             $login_error = "Invalid username or password";
+            echo '<script>alert("Error: ' . $login_error . '");</script>';
         }
         $stmt->close();
     } elseif (isset($_POST['signup'])) {
@@ -53,6 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt->execute();
             
             // Redirect to the login page after successful signup
+            $_SESSION['username'] = $username;
             header("Location: welcome.php");
             exit();
         }
@@ -68,6 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login and Signup</title>
     <link rel="stylesheet" href="Main_Database.css">
+    
     <script>
         function showLogin() {
             document.getElementById('loginForm').style.display = 'block';
@@ -78,17 +81,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             document.getElementById('signupForm').style.display = 'block';
             document.getElementById('loginForm').style.display = 'none';
         }
+        function toggleForm() {
+            var loginForm = document.getElementById('loginForm');
+            var signupForm = document.getElementById('signupForm');
+            var toggleButton = document.getElementById('toggleButton');
+            var loginDisplayStyle = window.getComputedStyle(loginForm).display;
+
+            if (loginDisplayStyle === 'block') {
+                loginForm.style.display = 'none';
+                signupForm.style.display = 'block';
+                toggleButton.textContent = 'Login';
+            } else {
+                loginForm.style.display = 'block';
+                signupForm.style.display = 'none';
+                toggleButton.textContent = 'Register';
+            }
+        }   
     </script>
 </head>
 <body>
-
-<h2>Login or Signup</h2>
-
-<button onclick="showLogin()">Login</button>
-<button onclick="showSignup()">Signup</button>
-
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <button onclick="toggleForm()"id="toggleButton" value="Register">Register</button>
 <!-- Login Form -->
 <form id="loginForm" method="post" action="">
+    <h3>Login</h3>
     <label for="username">Username:</label>
     <input type="text" id="username" name="username" required>
     <br>
@@ -100,6 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <!-- Signup Form -->
 <form id="signupForm" method="post" action="" class="hidden">
+    <h3>SignUp</h3>
     <label for="signup_username">Username:</label>
     <input type="text" id="signup_username" name="signup_username" required>
     <br>

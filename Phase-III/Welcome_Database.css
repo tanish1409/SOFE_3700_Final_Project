@@ -1,9 +1,35 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
+    background-image: url("https://img.freepik.com/free-vector/flat-national-doctor-s-day-background_23-2149447255.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
     margin: 0;
     padding: 0;
 }
+h1 {
+    position: relative;
+    padding: 0;
+    margin-top: 30px;
+    font-family: "Raleway", sans-serif;
+    font-weight: 300;
+    font-size: 40px;
+    color: #080808;
+    -webkit-transition: all 0.4s ease 0s;
+    -o-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s;
+    text-align: center;
+    font-size: 42px;
+    font-weight: 700; color:#202020;
+    text-transform: uppercase;
+    word-spacing: 1px; letter-spacing:2px;
+  }
+  
+  h1 em {
+    font-style: normal;
+    font-weight: 600;
+  }
+  
 
 nav {
     background-color: #333;
@@ -49,5 +75,19 @@ a {
 
 a:hover {
     background-color: #217dbb;
+}
+
+p{
+    text-align: center;
+    font-family: 'Arial', Courier, monospace;
+    font-size: 20px;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    text-align: center;
+    font-size: 18px;
 }
 

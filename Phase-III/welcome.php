@@ -22,12 +22,20 @@ $username = $_SESSION['username'];
 <nav>
     <a href="welcome.php">Home</a>
     <a href="Views.php">View</a>
-    <a href="order.html">Order</a>
+    <a href="drug.html?username=<?php echo urlencode($username); ?>">Inventory</a>
+    <a href="customer.html?username=<?php echo urlencode($username); ?>">User Profile</a>
     <a style="float: right;" href="logout.php">Logout</a>
 </nav>
 
-<h2>Welcome, <?php echo $username; ?>!</h2>
-<p>This is the welcome page.</p>
+<h1>Welcome, <?php echo $username; ?>!</h1>
+<p>This is the Main page of the Final Project of Database Management Course.</p>
+<p>Here you can navigate through the tabs to scope the goal of the project.</p><br><br>
+<ul>
+    <li>The View Tab Highlights the 10 Views from the Phase-II</li>
+    <li>The Inventory Tab Highlights one RESTful API Get query using JSON</li>
+    <li>The User Profile Tab Highlights the second RESTful API using GET and POST queries with JSON</li>
+</ul>
+
 
 </body>
 </html>

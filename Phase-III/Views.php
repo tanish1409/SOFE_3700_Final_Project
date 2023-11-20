@@ -185,9 +185,6 @@ function displayView5($connection) {
         }
 
         echo "</table>";
-
-        // Free the result set
-        mysqli_free_result($stmt5);
     } else {
         // Handle query error
         echo "Error: " . mysqli_error($connection);
@@ -404,7 +401,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <nav>
     <a href="welcome.php">Home</a>
     <a href="Views.php">View</a>
-    <a href="order.php">Order</a>
     <a style="float: right;" href="logout.php">Logout</a>
 </nav>
 <div id="list-container">
