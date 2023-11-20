@@ -44,11 +44,10 @@
 
 Make sure to follow these steps meticulously to set up the project successfully. If you encounter any issues during the installation or configuration process,please contact me through email (tanish.singla@ontariotechu.net).
 
-### Debug
+### Debug Possible Errors
 
-1. Possible errors:
-   a. Failure to establish a connection with Workbench. Ensure your credentials work properly.
-   b. Incorrect port number in Apache. Verify that the port number in the URL matches the one configured in Apache.
-   c. File permission issues in the `htdocs` folder. Make sure the web server has the necessary permissions to access the files.
-   d. Incorrect database name in the configuration files. Double-check the database name specified in `config.php` and ensure it matches the one created in MySQL Workbench.
-   e. PHP module not enabled in Apache. Ensure that the PHP module is enabled in the Apache configuration.
+1. Failure to establish a connection with Workbench. Ensure your credentials work properly.
+2. Incorrect port number in Apache. Verify that the port number in the URL matches the one configured in Apache.
+3. File permission issues in the `htdocs` folder. Make sure the web server has the necessary permissions to access the files.
+4. Incorrect database name in the configuration files. Double-check the database name specified in `config.php` and ensure it matches the one created in MySQL Workbench.
+5. PHP module not enabled in Apache. Ensure that the PHP module is enabled in the Apache configuration.
