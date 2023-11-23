@@ -91,3 +91,13 @@ ul{
     font-size: 18px;
 }
 
+#map {
+    width: 300px;
+    height: 200px;
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    bottom: 10px;
+    left: 40%;
+    transform: translateX(-100%);
+    transform: translateY(50%);
+}

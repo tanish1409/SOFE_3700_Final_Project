@@ -36,6 +36,18 @@ $username = $_SESSION['username'];
     <li>The User Profile Tab Highlights the second RESTful API using GET and POST queries with JSON</li>
 </ul>
 
+<div id="map"></div>
+<script type="text/javascript">
+    function initMap() {
+    var location = {lat: 43.945801, lng: -78.894600};
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 4,
+        center: location
+    });
+    var marker = new google.maps.Marker({position: location, map: map});
+}
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8ei3_SbV54_czY6FB6SOS4gObcGi8sZ0&callback=initMap"></script>
 
 </body>
 </html>
